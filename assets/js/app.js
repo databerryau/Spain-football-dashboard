@@ -139,16 +139,16 @@
      Factors, vibes and presets
      --------------------------------------------------------------- */
   const FACTORS = [
-    { key: 'glory', emo: '🏆', label: 'Winning & trophies', hint: 'Power index plus the trophy cabinet', hi: 'Wins things. Regularly.', lo: 'Trophies are a distant rumour' },
-    { key: 'value', emo: '💸', label: 'Cheap tickets', hint: 'Single tickets and season tickets you can actually get', hi: "Tickets won't wreck your rent", lo: 'Tickets cost a kidney' },
-    { key: 'atmosphere', emo: '🔥', label: 'Wild atmosphere', hint: 'Noise, passion, goosebumps', hi: 'The stadium goes absolutely nuclear', lo: 'Atmosphere can be… polite' },
-    { key: 'underdog', emo: '🥹', label: 'Underdog romance', hint: 'Lovable-loser energy', hi: 'Maximum underdog romance', lo: 'Zero underdog energy' },
-    { key: 'party', emo: '🍻', label: 'Party & tapas', hint: 'Nightlife and food around the game', hi: 'Elite bars and tapas round the ground', lo: 'Quiet night after the game' },
-    { key: 'drama', emo: '🎭', label: 'Appetite for drama', hint: 'Chaos, scandal, meltdowns', hi: 'Chaos guaranteed, bring popcorn', lo: 'Boringly well run' },
-    { key: 'sunshine', emo: '☀️', label: 'Sun & beach', hint: 'Weather and a beach nearby', hi: 'Sun, sea and football', lo: 'Pack an umbrella' },
-    { key: 'easy', emo: '🎟️', label: 'Easy to get a seat', hint: 'Tickets and memberships for newcomers', hi: 'Easy to actually get a ticket', lo: 'Good luck getting a seat' },
-    { key: 'cred', emo: '😎', label: 'Hipster cred', hint: 'Points for not being a glory hunter', hi: 'Instant street cred', lo: "Everyone will call you a glory hunter" },
-    { key: 'local', emo: '📍', label: 'Close to home', hint: 'Pick a city above to switch this on', hi: 'On your doorstep', lo: 'Every home game is an away day', needsCity: true },
+    { key: 'glory', short: 'Trophies', emo: '🏆', label: 'Winning & trophies', hint: 'Power index plus the trophy cabinet', hi: 'Wins things. Regularly.', lo: 'Trophies are a distant rumour', meh: 'Unlikely to win much' },
+    { key: 'value', short: 'Cheap tickets', emo: '💸', label: 'Cheap tickets', hint: 'Single tickets and season tickets you can actually get', hi: "Tickets won't wreck your rent", lo: 'Tickets cost a kidney', meh: 'Tickets on the pricey side' },
+    { key: 'atmosphere', short: 'Atmosphere', emo: '🔥', label: 'Wild atmosphere', hint: 'Noise, passion, goosebumps', hi: 'The stadium goes absolutely nuclear', lo: 'Atmosphere can be… polite', meh: 'The atmosphere is hit and miss' },
+    { key: 'underdog', short: 'Underdog', emo: '🥹', label: 'Underdog romance', hint: 'Lovable-loser energy', hi: 'Maximum underdog romance', lo: 'Zero underdog energy', meh: 'Not much of an underdog' },
+    { key: 'party', short: 'Party & tapas', emo: '🍻', label: 'Party & tapas', hint: 'Nightlife and food around the game', hi: 'Elite bars and tapas round the ground', lo: 'Quiet night after the game', meh: 'Matchday scene is fairly quiet' },
+    { key: 'drama', short: 'Drama', emo: '🎭', label: 'Appetite for drama', hint: 'Chaos, scandal, meltdowns', hi: 'Chaos guaranteed, bring popcorn', lo: 'Boringly well run', meh: 'Not much drama' },
+    { key: 'sunshine', short: 'Sun & beach', emo: '☀️', label: 'Sun & beach', hint: 'Weather and a beach nearby', hi: 'Sun, sea and football', lo: 'Pack an umbrella', meh: 'Grey skies are common' },
+    { key: 'easy', short: 'Easy to get in', emo: '🎟️', label: 'Easy to get a seat', hint: 'Tickets and memberships for newcomers', hi: 'Easy to actually get a ticket', lo: 'Good luck getting a seat', meh: 'Tickets can be hard to get' },
+    { key: 'cred', short: 'Hipster cred', emo: '😎', label: 'Hipster cred', hint: 'Points for not being a glory hunter', hi: 'Instant street cred', lo: "Everyone will call you a glory hunter", meh: 'Not the edgiest choice' },
+    { key: 'local', short: 'Close to home', emo: '📍', label: 'Close to home', hint: 'Counts triple. Full marks within ~30 km, half at 80 km', hintOff: 'Pick a city above to switch this on', hi: 'On your doorstep', lo: 'Every home game is an away day', meh: 'A bit of a trek', needsCity: true },
   ];
   const FBY = Object.fromEntries(FACTORS.map(f => [f.key, f]));
 
@@ -166,10 +166,10 @@
 
   const PRESETS = [
     { id: 'balanced', emo: '⚖️', label: 'Balanced', w: { glory: 2, value: 3, atmosphere: 3, underdog: 2, party: 3, drama: 1, sunshine: 2, easy: 3, cred: 2, local: 4 } },
-    { id: 'glory', emo: '🏆', label: 'Glory hunter', w: { glory: 5, value: 0, atmosphere: 2, underdog: 0, party: 1, drama: 1, sunshine: 0, easy: 1, cred: 0, local: 1 } },
+    { id: 'glory', emo: '🏆', label: 'Glory hunter', w: { glory: 5, value: 0, atmosphere: 2, underdog: 0, party: 1, drama: 1, sunshine: 0, easy: 1, cred: 0, local: 2 } },
     { id: 'hipster', emo: '😎', label: 'Hipster', w: { glory: 0, value: 2, atmosphere: 3, underdog: 4, party: 2, drama: 1, sunshine: 0, easy: 1, cred: 5, local: 1 } },
     { id: 'budget', emo: '💸', label: 'Budget baller', w: { glory: 1, value: 5, atmosphere: 1, underdog: 1, party: 1, drama: 0, sunshine: 0, easy: 4, cred: 0, local: 3 } },
-    { id: 'party', emo: '🎉', label: 'Party animal', w: { glory: 1, value: 2, atmosphere: 4, underdog: 0, party: 5, drama: 1, sunshine: 4, easy: 1, cred: 1, local: 1 } },
+    { id: 'party', emo: '🎉', label: 'Party animal', w: { glory: 1, value: 2, atmosphere: 4, underdog: 0, party: 5, drama: 1, sunshine: 4, easy: 1, cred: 1, local: 2 } },
     { id: 'masochist', emo: '🥹', label: 'Masochist', w: { glory: 0, value: 1, atmosphere: 3, underdog: 5, party: 1, drama: 5, sunshine: 0, easy: 0, cred: 3, local: 0 } },
     { id: 'local', emo: '📍', label: 'Local hero', w: { glory: 1, value: 1, atmosphere: 2, underdog: 1, party: 1, drama: 0, sunshine: 0, easy: 2, cred: 1, local: 5 } },
   ];
@@ -185,6 +185,16 @@
     heatSort: { key: null, asc: false },
     ticketSort: { key: 'min', asc: true },
     lastQuirk: -1,
+  };
+
+  // Distance: straight line from your city to the stadium. Full marks within ~30 km,
+  // half marks at 80 km, close to zero beyond 300 km.
+  const proximity = km => 1 / (1 + Math.pow(km / 80, 2));
+  // "Close to home" counts triple, so a 5 on that slider outweighs any other single slider.
+  const LOCAL_BOOST = 3;
+  const factorWeight = key => {
+    if (key === 'local') return state.city ? state.weights.local * LOCAL_BOOST : 0;
+    return state.weights[key];
   };
 
   function features(c) {
@@ -203,18 +213,17 @@
     };
     if (state.city) {
       f.km = distKm(state.city, c);
-      f.local = Math.exp(-f.km / 120);
+      f.local = proximity(f.km);
     }
     return f;
   }
 
   function computeMatches() {
-    const w = state.weights;
     state.results = CLUBS.map(c => {
       const f = features(c);
       let num = 0, den = 0;
       for (const F of FACTORS) {
-        const wt = F.needsCity && !state.city ? 0 : w[F.key];
+        const wt = factorWeight(F.key);
         if (!wt) continue;
         num += wt * f[F.key];
         den += wt;
@@ -356,53 +365,115 @@
       return h('div', { class: 'slider' + (disabled ? ' disabled' : '') },
         h('label', { for: id }, h('span', { class: 'emo', 'aria-hidden': 'true', text: F.emo }), F.label),
         out, input,
-        h('span', { class: 'hint', id: id + '-hint', text: F.hint }));
+        h('span', { class: 'hint', id: id + '-hint', text: disabled && F.hintOff ? F.hintOff : F.hint }));
     }));
   }
 
   /* ---------------------------------------------------------------
      Matchmaker: results
      --------------------------------------------------------------- */
+  const activeFactors = r => FACTORS.filter(F => factorWeight(F.key) > 0).map(F => ({ F, s: r.f[F.key], wt: factorWeight(F.key) }));
+  const factorText = (r, i, hi) => {
+    if (i.F.key === 'local' && r.f.km != null) {
+      const km = Math.round(r.f.km);
+      return hi ? (km < 15 ? 'Literally in your city' : `Just ${km} km away`) : `${km} km away: every home game is a road trip`;
+    }
+    if (hi) return i.F.hi;
+    return i.s < 0.25 ? i.F.lo : i.F.meh;
+  };
+
   function reasons(r) {
-    const w = state.weights;
-    const items = FACTORS.filter(F => !(F.needsCity && !state.city) && w[F.key] > 0)
-      .map(F => ({ F, s: r.f[F.key], wt: w[F.key] }));
-    const good = items.filter(i => i.s >= 0.6).sort((a, b) => b.wt * b.s - a.wt * a.s).slice(0, 3);
-    const bad = items.filter(i => i.s <= 0.4 && i.wt >= 2).sort((a, b) => a.s - b.s || b.wt - a.wt).slice(0, 2);
-    const txt = (i, hi) => {
-      if (i.F.key === 'local' && r.f.km != null) {
-        const km = Math.round(r.f.km);
-        return hi ? (km < 15 ? 'Literally in your city' : `Just ${km} km away`) : `${km} km away: every home game is a road trip`;
-      }
-      return hi ? i.F.hi : i.F.lo;
-    };
-    return {
-      good: good.map(i => ({ emo: i.F.emo, text: txt(i, true), s: i.s })),
-      bad: bad.map(i => ({ emo: i.F.emo, text: txt(i, false), s: i.s })),
-    };
+    return activeFactors(r).filter(i => i.s >= 0.6).sort((a, b) => b.wt * b.s - a.wt * a.s).slice(0, 3)
+      .map(i => ({ emo: i.F.emo, text: factorText(r, i, true) }));
+  }
+
+  // Club-level red flags that are true whatever you care about (factual, from the data).
+  function clubFlags(c) {
+    const out = [];
+    const t = c.tickets;
+    if (t.access === 'closed') out.push({ key: 'easy', emo: '🎟️', text: 'No season tickets for newcomers this season' });
+    else if (t.access === 'limited') out.push({ key: 'easy', emo: '🎟️', text: 'Season tickets only via a waiting list or small quota' });
+    if (c.promoted) out.push({ key: 'glory', emo: '⬆️', text: 'Newly promoted: a relegation fight is likely' });
+    else if (META.dropLine != null && c.s2526.pts - META.dropLine <= 3) {
+      const gap = c.s2526.pts - META.dropLine;
+      out.push({ key: 'glory', emo: '😬', text: gap <= 0 ? 'Stayed up in 2025-26 only on a tiebreak' : `Finished just ${gap} pt${gap > 1 ? 's' : ''} above the drop in 2025-26` });
+    }
+    if (c.priceMin >= 60 || (t.big != null && t.big >= 200)) {
+      out.push({ key: 'value', emo: '💸', text: `Seats from ${eur(c.priceMin)}` + (t.big >= 200 ? `, big games from ${eur(t.big)}` : '') });
+    }
+    if (c.vibe.drama >= 9) out.push({ key: 'drama', emo: '🎭', text: 'Serious off-pitch chaos' });
+    if (c.vibe.atmosphere <= 4) out.push({ key: 'atmosphere', emo: '😴', text: 'The atmosphere can be flat' });
+    if (c.vibe.sunshine <= 3) out.push({ key: 'sunshine', emo: '🌧️', text: 'Pack a raincoat: one of the wettest cities in Spain' });
+    if (c.vibe.cred <= 2) out.push({ key: 'cred', emo: '🙄', text: 'Expect endless glory-hunter jokes' });
+    (c.extraFlags || []).forEach(text => out.push({ key: 'other', emo: '🏗️', text }));
+    return out;
+  }
+  CLUBS.forEach(c => { c.flags = clubFlags(c); });
+
+  // Red flags for YOU: your weighted priorities where this club scores badly, then the club-level flags.
+  function redFlags(r) {
+    const personal = activeFactors(r).filter(i => i.s < 0.45)
+      .sort((a, b) => b.wt * (1 - b.s) - a.wt * (1 - a.s)).slice(0, 2)
+      .map(i => {
+        // prefer the club's concrete fact (e.g. "no season tickets") over the generic line
+        const fact = r.club.flags.find(fl => fl.key === i.F.key);
+        return fact ? { ...fact, personal: true } : { key: i.F.key, emo: i.F.emo, text: factorText(r, i, false), personal: true };
+      });
+    const seen = new Set(personal.map(p => p.key));
+    // if you asked for drama, chaos isn't a red flag
+    const general = r.club.flags.filter(fl => !seen.has(fl.key) && !(fl.key === 'drama' && state.weights.drama >= 3));
+    return [...personal, ...general];
+  }
+  const lowerFirst = t => t.charAt(0).toLowerCase() + t.slice(1);
+  const flagLi = x => h('li', null, h('span', { 'aria-hidden': 'true', text: x.emo }), h('span', { text: x.text }));
+
+  function flagChip(r) {
+    const fl = redFlags(r);
+    const chip = h('span', { class: 'flag-chip' + (fl.length ? '' : ' none'), 'aria-label': fl.length ? `${fl.length} red flags: ` + fl.map(x => x.text).join('; ') : 'No red flags' }, fl.length ? '🚩 ' + fl.length : '✨');
+    bindTip(chip, () => [ttTitle(`${r.club.short}: red flags`), ...(fl.length ? fl.map(x => ttNote(`${x.emo} ${x.text}`)) : [ttNote('Nothing to worry about. Suspicious.')])]);
+    return chip;
+  }
+
+  // Transparent scoring: every active factor, its weight and this club's score.
+  function howItWorks(r) {
+    const items = activeFactors(r);
+    const total = sum(items.map(i => i.wt)) || 1;
+    return h('details', { class: 'how' },
+      h('summary', null, 'How is this match % calculated?'),
+      h('p', null, 'Every club gets a 0–100 score on each factor. Your sliders are the weights, and the match % is the weighted average. ',
+        h('b', { text: 'Close to home' }), ' uses the straight-line distance from your city to the stadium: full marks within about 30 km, half at 80 km, close to zero past 300 km. It counts triple.'),
+      h('div', { class: 'breakdown', role: 'table', 'aria-label': `Score breakdown for ${r.club.name}` },
+        ...items.sort((a, b) => b.wt - a.wt).map(i => h('div', { class: 'bd-row', role: 'row' },
+          h('span', { class: 'bd-lbl', role: 'cell', title: i.F.label }, `${i.F.emo} ${i.F.short}`),
+          h('span', { class: 'bd-wt', role: 'cell', title: 'Share of the total weight', text: Math.round(i.wt / total * 100) + '%' }),
+          h('span', { class: 'bd-bar', role: 'cell' }, h('i', { style: { width: Math.round(i.s * 100) + '%', background: heat(0.25 + 0.75 * i.s) } })),
+          h('span', { class: 'bd-val', role: 'cell', text: Math.round(i.s * 100) + (i.F.key === 'local' && r.f.km != null ? ` · ${Math.round(r.f.km)} km` : '') })))),
+      h('p', { class: 'muted bd-note', text: 'Middle column: how much of your total weighting that factor carries. Bar: how well this club scores on it.' }));
   }
 
   function renderTopMatch() {
     const r = state.results[0];
     const c = r.club;
-    const why = reasons(r);
-    const li = (x) => h('li', null, h('span', { 'aria-hidden': 'true', text: x.emo }), h('span', { text: x.text }));
+    const good = reasons(r);
+    const flags = redFlags(r).slice(0, 3);
+    const li = flagLi;
     $('#topMatch').replaceChildren(
       h('div', { class: 'top-match' },
         h('p', { class: 'eyebrow top-label', text: state.city ? `Your perfect match in or near ${state.city.name}…` : 'Your perfect match' }),
         badge(c, 'lg'),
         h('div', null,
           h('h3', { class: 'top-name', text: c.name }),
-          h('p', { class: 'top-meta', text: `${c.city} · “${c.nickname}” · ${c.stadium}` }))),
+          h('p', { class: 'top-meta', text: `${c.city} · “${c.nickname}” · ` + (r.f.km != null ? `${Math.round(r.f.km)} km from ${state.city.name}` : c.stadium) }))),
       h('div', { class: 'match-hero' },
         h('span', { class: 'match-num' }, String(r.match), h('small', { text: '%' })),
         h('span', { class: 'match-cap', text: 'fit with your priorities' })),
       h('div', { class: 'meter', role: 'img', 'aria-label': `Match ${r.match} percent` }, h('i', { style: { width: r.match + '%' } })),
       h('div', { class: 'why' },
         h('div', null, h('h4', { text: 'Why it works' }),
-          h('ul', null, why.good.length ? why.good.map(li) : h('li', { text: "Honestly? It's a compromise." }))),
-        h('div', null, h('h4', { text: 'Heads up' }),
-          h('ul', null, why.bad.length ? why.bad.map(li) : h('li', null, h('span', { 'aria-hidden': 'true', text: '✨' }), h('span', { text: 'No red flags. Suspiciously perfect.' }))))),
+          h('ul', null, good.length ? good.map(li) : h('li', { text: "Honestly? It's a compromise." }))),
+        h('div', { class: 'flags' }, h('h4', { text: '🚩 Red flags' }),
+          h('ul', null, flags.length ? flags.map(li) : li({ emo: '🚩', text: 'Avoid if ' + lowerFirst(c.avoidIf) })))),
+      howItWorks(r),
       h('p', { class: 'shout' }, 'Phrase to shout: ', h('b', { text: c.phrase })),
       h('button', { type: 'button', class: 'btn btn-ghost btn-sm', onclick: () => openClub(c.id) }, 'Open the full club file →'),
     );
@@ -412,6 +483,7 @@
         h('span', { class: 'rank', text: '#' + (i + 2) }),
         badge(x.club),
         h('span', { class: 'rname' }, x.club.name, h('small', { text: x.club.city + (x.f.km != null ? ` · ${Math.round(x.f.km)} km` : '') })),
+        flagChip(x),
         h('span', { class: 'rbar' }, h('i', { style: { width: x.match + '%' } })),
         h('span', { class: 'rpct', text: x.match + '%' }));
       b.addEventListener('click', () => openClub(x.club.id));
@@ -465,6 +537,13 @@
     }
     const top3 = new Set(state.results.slice(0, 3).map(r => r.club.id));
     const gl = s('g'), gd = s('g'), gt = s('g');
+    const boxes = [];
+    const overlaps = (a, b) => !(a.x + a.w < b.x || b.x + b.w < a.x || a.y + a.h < b.y || b.y + b.h < a.y);
+    if (state.city) {
+      const [cx, cy] = project(state.city.lat, state.city.lng).map(v => v * k);
+      const cw = state.city.name.length * 7.6;
+      boxes.push({ x: cx - cw / 2, y: cy - 36, w: cw, h: 36 });
+    }
     pts.forEach(p => {
       const m = state.matchById[p.c.id];
       if (Math.hypot(p.x - p.x0, p.y - p.y0) > 2) gl.append(s('line', { x1: p.x0, y1: p.y0, x2: p.x, y2: p.y, class: 'leader' }));
@@ -480,11 +559,25 @@
         ttNote(`${p.c.city} · ${p.c.stadium}`)].filter(Boolean));
       rowActivate(g, () => openClub(p.c.id));
       gd.append(g);
-      if (top3.has(p.c.id)) {
-        const label = `${m.rank}. ${p.c.short}`;
-        const right = p.x + R + 5 + label.length * 6.6 < W - 2;
-        gt.append(s('text', { x: right ? p.x + R + 5 : p.x - R - 5, y: p.y + 4, 'text-anchor': right ? 'start' : 'end', class: 'dot-label', text: label }));
-      }
+    });
+    // label the top three, trying right / left / below / above until nothing collides
+    state.results.slice(0, 3).map(r => pts.find(p => p.c.id === r.club.id)).forEach(p => {
+      const m = state.matchById[p.c.id];
+      const label = `${m.rank}. ${p.c.short}`;
+      const lw = label.length * 6.6, lh = 13;
+      const cands = [
+        [p.x + R + 5, p.y + 4, 'start', { x: p.x + R + 5, y: p.y - 8, w: lw, h: lh }],
+        [p.x - R - 5, p.y + 4, 'end', { x: p.x - R - 5 - lw, y: p.y - 8, w: lw, h: lh }],
+        [p.x, p.y + R + 14, 'middle', { x: p.x - lw / 2, y: p.y + R + 3, w: lw, h: lh }],
+        [p.x, p.y - R - 6, 'middle', { x: p.x - lw / 2, y: p.y - R - 17, w: lw, h: lh }],
+      ];
+      const dotBoxes = pts.filter(o => o !== p).map(o => ({ x: o.x - R, y: o.y - R, w: 2 * R, h: 2 * R }));
+      const fits = b => b.x >= 2 && b.x + b.w <= W - 2 && b.y >= 2 && b.y + b.h <= H - 2;
+      const best = cands.find(([, , , b]) => fits(b) && !boxes.some(o => overlaps(o, b)) && !dotBoxes.some(o => overlaps(o, b)))
+        || cands.find(([, , , b]) => fits(b) && !boxes.some(o => overlaps(o, b)))
+        || cands[0];
+      boxes.push(best[3]);
+      gt.append(s('text', { x: best[0], y: best[1], 'text-anchor': best[2], class: 'dot-label', text: label }));
     });
     svg.append(gl, gd, gt);
     if (state.city) {
@@ -993,10 +1086,11 @@
     grid.replaceChildren(...rows.map(c => {
       const m = state.matchById[c.id];
       const b = h('button', { type: 'button', class: 'card club-card', 'aria-label': `${c.name}, ${m.match} percent match. Open club file.` },
-        h('span', { class: 'cc-match', text: `${m.match}% match` }),
         h('div', { class: 'cc-head' }, badge(c, 'md'),
-          h('div', null, h('h3', { text: c.name }), h('p', { class: 'cc-city', text: `${c.city} · “${c.nickname}”` }))),
+          h('div', { class: 'cc-name' }, h('h3', { text: c.name }), h('p', { class: 'cc-city', text: `${c.city} · “${c.nickname}”` })),
+          h('span', { class: 'cc-match', text: `${m.match}%` })),
         h('p', { class: 'cc-tag', text: c.tagline }),
+        (() => { const fl = redFlags(m); return h('p', { class: 'cc-flag', text: fl.length ? `🚩 ${fl[0].text}` + (fl.length > 1 ? ` (+${fl.length - 1} more)` : '') : '✨ No red flags for you' }); })(),
         h('div', { class: 'cc-stats' },
           h('div', null, h('b', { text: String(c.power) }), 'Power'),
           h('div', null, h('b', { text: priceTxt(c, c.priceMin) }), 'Tickets from'),
@@ -1047,6 +1141,8 @@
             h('div', null, h('dt', { text: 'Newcomer access' }), h('dd', null, (() => { const a = ACCESS[t.access]; return h('span', { class: 'status ' + a.cls }, h('i', { 'aria-hidden': 'true', text: a.icon }), a.label); })()))),
           h('p', { class: 'muted', style: { fontSize: '14px', marginTop: '-6px' }, text: t.note + (t.est ? ' Single-match prices marked ≈ are estimates.' : '') }),
           c.capacityNote ? h('p', { class: 'muted', style: { fontSize: '13px', marginTop: '-6px' }, text: 'Stadium note: ' + c.capacityNote + '.' }) : null,
+          h('h3', { text: '🚩 Red flags' }),
+          (() => { const fl = redFlags(m); return fl.length ? h('ul', { class: 'flag-list' }, ...fl.map(x => h('li', null, h('span', { 'aria-hidden': 'true', text: x.emo }), h('span', { text: x.text + (x.personal ? ' (based on your sliders)' : '') })))) : h('p', { class: 'muted', text: 'Nothing obvious. Suspiciously perfect.' }); })(),
           h('div', { class: 'pick-avoid' },
             h('div', null, h('b', { text: '💘 Pick them if…' }), c.pickIf),
             h('div', null, h('b', { text: '🚩 Avoid if…' }), c.avoidIf)),

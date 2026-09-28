@@ -17,6 +17,12 @@ Moving to Spain? Within a week someone will ask *"¿de qué equipo eres?"* ("whi
 | **Club files** | A deep-dive card for every club: stats, prices, attitude fingerprint, a phrase to shout and a newcomer tip. |
 | **Wheel of fate** | Can't decide? Spin it. (It leans towards your best matches.) |
 
+## How the matchmaker scores
+
+- Every club gets a 0–100 score on each factor. Your sliders are the weights, and the **match %** is the weighted average. Open *"How is this match % calculated?"* under your top match to see the breakdown.
+- **Close to home** uses the straight-line distance from your chosen city to the stadium: `1 / (1 + (km / 80)²)`. That gives full marks within about 30 km, half at 80 km and close to zero past 300 km. It **counts triple**, so a 5 on that slider outweighs any other single slider.
+- **Red flags** combine your weak spots (factors you weighted where the club scores below 45) with club facts that apply to everyone: no or waiting-list-only season tickets, newly promoted, a close shave with relegation, pricey seats, off-pitch chaos, stadium works and so on.
+
 ## About the data
 
 - **Results and honours:** public sources (Wikipedia season pages, LaLiga, club sites and the Spanish sports press), checked on 28 September 2026. The 2025-26 LaLiga table was cross-checked for internal consistency. For the three promoted clubs (Racing, Deportivo, Málaga) the 2025-26 records are from Segunda and partly incomplete.

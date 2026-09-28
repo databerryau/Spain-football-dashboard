@@ -4,6 +4,7 @@
 window.META = {
   "updated": "2026-09-28",
   "season": "2026-27",
+  "dropLine": 42,
   "early": {
     "club": "barcelona",
     "value": "21 pts",
@@ -320,7 +321,8 @@ window.CLUBS = [
       "Lost the 2001 UEFA Cup final 5–4 to Liverpool on a golden goal, still one of the greatest finals ever played.",
       "Fans call the club 'El Glorioso' (the Glorious One).",
       "Vitoria-Gasteiz was European Green Capital in 2012."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "athletic-club",
@@ -425,7 +427,8 @@ window.CLUBS = [
       "Only players born or trained in the Basque Country play for them, and they have never been relegated.",
       "San Mamés is nicknamed 'La Catedral' (the Cathedral).",
       "When they win a trophy, the team sails through Bilbao on a barge called 'La Gabarra' while the whole city lines the river."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "atletico-madrid",
@@ -530,7 +533,8 @@ window.CLUBS = [
       "'Los Colchoneros' (the mattress makers): the red-and-white stripes looked like old Spanish mattress covers.",
       "Diego Simeone has been coach since December 2011, which is several geological eras in football time.",
       "An old nickname, 'El Pupas' (the jinxed one), sums up generations of glorious suffering."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "barcelona",
@@ -634,6 +638,9 @@ window.CLUBS = [
       "Fans are 'culés' (backsides) because passers-by at the old Les Corts ground mostly saw spectators' bottoms hanging over the top of the wall.",
       "The club is owned by its members (socios), who elect the president.",
       "Clinched the 2025-26 title, their 29th, with a 2-0 Clásico win over Real Madrid."
+    ],
+    "extraFlags": [
+      "The Camp Nou is still reopening in phases"
     ]
   },
   {
@@ -737,6 +744,9 @@ window.CLUBS = [
       "O Noso Derbi, the Galician derby against Deportivo, is back in the top flight for 2026-27.",
       "The crest carries the red Cross of Saint James (Cruz de Santiago).",
       "Reached the Europa League semi-finals in 2017 and lost narrowly to Manchester United."
+    ],
+    "extraFlags": [
+      "Balaídos stand works are limiting capacity"
     ]
   },
   {
@@ -840,7 +850,8 @@ window.CLUBS = [
       "'Súper Depor' won LaLiga in 2000 and came back from 4-1 down to beat AC Milan 4-0 in the 2004 Champions League quarter-finals.",
       "The 'Centenariazo': they beat Real Madrid in the 2002 Copa del Rey final at the Bernabéu, on Madrid's 100th birthday.",
       "Spent four seasons in the third tier before climbing back to LaLiga in 2026."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "elche",
@@ -944,7 +955,8 @@ window.CLUBS = [
       "The city's Palmeral (palm grove) is a UNESCO World Heritage Site with around 200,000 palm trees.",
       "The Martínez Valero hosted games at the 1982 World Cup.",
       "The single green stripe across the white shirt gives them their nickname, 'Franjiverdes' (green stripes)."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "espanyol",
@@ -1047,7 +1059,8 @@ window.CLUBS = [
       "Fans are called 'Pericos' (parakeets).",
       "Reached two UEFA Cup finals (1988, 2007) and lost both on penalties.",
       "The name means 'Spanish'. Spanish students founded the club in 1900, while Barcelona's founders included many foreigners."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "getafe",
@@ -1153,6 +1166,9 @@ window.CLUBS = [
       "The stadium is named after Alfonso Pérez, a Getafe-born striker who played for both Real Madrid and Barcelona.",
       "Reached back-to-back Copa del Rey finals (2007, 2008) and a UEFA Cup quarter-final against Bayern Munich.",
       "Finished 7th in 2025-26, so it's Conference League football in the suburbs this season."
+    ],
+    "extraFlags": [
+      "Stadium works have cut capacity to about 11,000"
     ]
   },
   {
@@ -1257,7 +1273,8 @@ window.CLUBS = [
       "Nicknamed 'Granotes' (frogs), reportedly because their old ground was next to marshland full of them.",
       "Founded in 1909, they are Valencia city's oldest club, a decade older than their famous neighbours.",
       "Survived 2025-26 on a head-to-head tiebreak on 42 points. Nerves of steel, or no nerves left."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "malaga",
@@ -1362,7 +1379,8 @@ window.CLUBS = [
       "'Los Boquerones' (the anchovies) are named after the city's favourite fried fish.",
       "Reached the Champions League quarter-finals in 2013 and lost to Dortmund with two stoppage-time goals. Don't mention it.",
       "Won the 2026 play-off final against Almería to return to LaLiga after eight years."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "osasuna",
@@ -1467,7 +1485,8 @@ window.CLUBS = [
       "'Osasuna' means 'health' in Basque.",
       "One of only four LaLiga clubs still owned by their members, with Real Madrid, Barcelona and Athletic.",
       "El Sadar was rebuilt in 2021 with steep stands that trap the noise."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "racing-santander",
@@ -1571,7 +1590,8 @@ window.CLUBS = [
       "Founding members of LaLiga in 1929.",
       "Won Segunda in 2025-26 with 90 goals and are back in the top flight after 14 years.",
       "El Sardinero is a short walk from Sardinero beach, so bring a towel."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "rayo-vallecano",
@@ -1676,6 +1696,9 @@ window.CLUBS = [
       "Their stadium has only three stands. One end is a wall with apartment blocks behind it.",
       "In 2014 the club's fans and players rallied to help an 85-year-old neighbour who had been evicted from her home.",
       "Reached the 2026 Conference League final in their first European campaign in 25 years, losing 1–0 to Crystal Palace."
+    ],
+    "extraFlags": [
+      "Vallecas was closed in summer 2026; the team is due back from 10 Oct"
     ]
   },
   {
@@ -1779,6 +1802,9 @@ window.CLUBS = [
       "The motto 'Viva el Betis manque pierda' means 'long live Betis, even if they lose'. That's the whole personality.",
       "Only one league title (1935), yet one of the biggest fanbases in Spain.",
       "Reached their first European final in 2025 (Conference League, lost to Chelsea) and are back in the Champions League for 2026-27 after 21 years."
+    ],
+    "extraFlags": [
+      "Temporary home at La Cartuja, out of town, while the Villamarín is rebuilt"
     ]
   },
   {
@@ -1883,7 +1909,8 @@ window.CLUBS = [
       "Record 15-time European champions. Fans treat the Champions League like a domestic cup.",
       "The rebuilt Bernabéu has a retractable pitch that slides away underground so the stadium can host concerts.",
       "Unhappy fans wave white handkerchiefs (the 'pañolada'), sometimes even when the team is winning but playing badly."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "real-sociedad",
@@ -1988,7 +2015,8 @@ window.CLUBS = [
       "Won the 2026 Copa del Rey, beating Atlético on penalties. It was their fourth.",
       "Back-to-back LaLiga champions in 1981 and 1982.",
       "The Basque derby with Athletic is famously friendly, and rival fans often drink together."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "sevilla",
@@ -2091,7 +2119,8 @@ window.CLUBS = [
       "Seven UEFA Cup/Europa League titles, more than any other club.",
       "Before kick-off the whole stadium sings the centenary anthem with scarves raised. Goosebumps guaranteed.",
       "El Gran Derbi against Betis splits families, streets and entire neighbourhoods."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "valencia",
@@ -2196,7 +2225,8 @@ window.CLUBS = [
       "Mestalla's stands are so steep it's said the top tier hangs over the pitch.",
       "The new stadium was started in 2007 and stalled for over a decade. 2026-27 is planned as the farewell season at Mestalla.",
       "Lost back-to-back Champions League finals in 2000 and 2001."
-    ]
+    ],
+    "extraFlags": []
   },
   {
     "id": "villarreal",
@@ -2300,6 +2330,7 @@ window.CLUBS = [
       "Vila-real has about 50,000 residents and the stadium holds about 23,000. Nearly half the town could fit inside.",
       "Nicknamed the Yellow Submarine, and yes, the Beatles song is basically their anthem.",
       "Won the 2021 Europa League with an 11–10 shootout against Manchester United, in which even the goalkeepers took penalties."
-    ]
+    ],
+    "extraFlags": []
   }
 ];
