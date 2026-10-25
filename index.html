@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿De Qué Equipo Eres? · Spanish Football Team Picker</title>
+  <meta name="description" content="A hot-pink, flame-powered guide to picking your Spanish football team. Compare all 20 LaLiga 2026-27 clubs on performance, attitude and ticket prices, then let the matchmaker choose.">
+  <meta name="theme-color" content="#0b0308">
+  <meta property="og:title" content="¿De Qué Equipo Eres? · Spanish Football Team Picker">
+  <meta property="og:description" content="Performance, random attitudes & ticket prices for all 20 LaLiga clubs, plus a matchmaker to pick yours.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <canvas id="embers" aria-hidden="true"></canvas>
+
+  <header class="hero" id="top">
+    <canvas id="flames" aria-hidden="true"></canvas>
+    <nav class="topnav" aria-label="Sections">
+      <a class="brand" href="#top"><span aria-hidden="true">🔥</span> Equipo<b>Finder</b></a>
+      <div class="navlinks">
+        <a href="#matchmaker">Matchmaker</a>
+        <a href="#performance">Performance</a>
+        <a href="#attitudes">Attitudes</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#clubs">Club files</a>
+      </div>
+    </nav>
+    <div class="hero-inner">
+      <p class="kicker">LaLiga 2026-27 · a newcomer's field guide</p>
+      <h1 class="flame-text">¿De qué<br>equipo eres?</h1>
+      <p class="lede">Within a week of landing in Spain someone will ask you <em>“which team are you?”</em> Don't panic. Here are all 20 top-flight clubs ranked on <strong>performance</strong>, <strong>attitude</strong> and <strong>ticket prices</strong>, plus a matchmaker that picks one for you.</p>
+      <div class="hero-cta">
+        <a href="#matchmaker" class="btn btn-fire">Find my club <span aria-hidden="true">🔥</span></a>
+        <button type="button" class="btn btn-ghost" data-spin>Spin the wheel of fate</button>
+      </div>
+      <div class="hero-stats" id="heroStats"></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ MATCHMAKER ============ -->
+    <section id="matchmaker" class="section">
+      <div class="section-head">
+        <p class="eyebrow">01 · Matchmaker</p>
+        <h2>Tell us what sets you on fire</h2>
+        <p class="section-lede">Choose your new city, drag the sliders to show what matters to you, and we'll rank every club by fit. Or tap a personality preset.</p>
+      </div>
+
+      <div class="filter-row">
+        <label class="field">
+          <span class="field-label">I'm moving to…</span>
+          <select id="citySelect"></select>
+        </label>
+        <div class="presets" role="group" aria-label="Personality presets" id="presets"></div>
+      </div>
+
+      <div class="mm-grid">
+        <div class="card sliders-card">
+          <h3 class="card-title">What matters to you?</h3>
+          <p class="card-sub">0 = don't care · 5 = non-negotiable</p>
+          <div id="sliders" class="sliders"></div>
+        </div>
+
+        <div class="card result-card" aria-live="polite">
+          <div id="topMatch"></div>
+          <h3 class="card-title runners-title">Also on your radar</h3>
+          <ol id="runnersUp" class="runners"></ol>
+        </div>
+
+        <div class="card map-card">
+          <h3 class="card-title">Where the fire burns</h3>
+          <p class="card-sub">Dots glow brighter the better the fit for you. Hover or tap a dot.</p>
+          <div id="map" class="map"></div>
+          <div id="mapLegend" class="legend-ramp"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PERFORMANCE ============ -->
+    <section id="performance" class="section">
+      <div class="section-head">
+        <p class="eyebrow">02 · Performance</p>
+        <h2>Who actually wins?</h2>
+        <p class="section-lede">Last season's final table, five years of history and the full trophy cabinet. The <strong>Power index</strong> boils recent form down to one 0–100 number, so newly promoted clubs start near the bottom.</p>
+      </div>
+      <div class="kpi-row" id="perfKpis"></div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title" id="perfChartTitle">Power index</h3>
+              <p class="card-sub" id="perfChartSub"></p>
+            </div>
+            <div class="seg" role="tablist" aria-label="Metric" id="perfMetric"></div>
+          </div>
+          <div id="perfChart" class="chart"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title">The trophy cabinet</h3>
+              <p class="card-sub">Major honours, all time. Spoiler: it's not an even fight.</p>
+            </div>
+          </div>
+          <div id="trophyLegend" class="legend"></div>
+          <div id="trophyChart" class="chart"></div>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">The full table</h3>
+            <p class="card-sub">Click a column to sort. The trend line shows the last five league finishes; dots below the pink rule were in a lower division.</p>
+          </div>
+        </div>
+        <div class="table-wrap"><table id="perfTable" class="data-table"></table></div>
+      </div>
+    </section>
+
+    <!-- ============ ATTITUDES ============ -->
+    <section id="attitudes" class="section">
+      <div class="section-head">
+        <p class="eyebrow">03 · Random attitudes</p>
+        <h2>Stats say who wins. Attitude says who you'll be drinking with.</h2>
+        <p class="section-lede">Every club rated 0–10 on nine very serious metrics. These are affectionate, subjective and 100% vibes-based. Click a column to sort; click a club to open its file.</p>
+      </div>
+
+      <div class="card table-card">
+        <div class="table-wrap"><table id="heatmap" class="heatmap"></table></div>
+        <div id="heatLegend" class="legend-ramp legend-ramp--wide"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title">Attitude fingerprint: head to head</h3>
+              <p class="card-sub">Put two clubs side by side.</p>
+            </div>
+          </div>
+          <div class="compare-pickers">
+            <label class="field"><span class="field-label"><i class="key key-1"></i>Club A</span><select id="cmpA"></select></label>
+            <label class="field"><span class="field-label"><i class="key key-3"></i>Club B</span><select id="cmpB"></select></label>
+          </div>
+          <div id="radar" class="chart radar"></div>
+        </div>
+        <div class="card random-card">
+          <h3 class="card-title">The random attitude generator</h3>
+          <p class="card-sub">Hit the button for a random fact, quirk or piece of fan folklore.</p>
+          <div id="randomAttitude" class="random-out" aria-live="polite"></div>
+          <button type="button" class="btn btn-fire" id="randomBtn">🎲 Hit me with an attitude</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TICKETS ============ -->
+    <section id="tickets" class="section">
+      <div class="section-head">
+        <p class="eyebrow">04 · Ticket prices</p>
+        <h2>What does the fire cost?</h2>
+        <p class="section-lede">Cheapest adult tickets for a normal league game against the price of the big one (Clásico, derby or a visit from Madrid or Barça), season tickets, and how hard it is for a newcomer to get in at all. Prices are approximate. Always check the club's official site.</p>
+      </div>
+      <div class="kpi-row" id="ticketKpis"></div>
+      <p class="callout"><span aria-hidden="true">🍺</span> <span><strong>Beer check:</strong> <span id="beerNote"></span> Do your drinking in the bars outside, like everyone else.</span></p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title">Matchday: cheapest seat vs big game</h3>
+              <p class="card-sub">Adult general sale, € per match, sorted by cheapest.</p>
+            </div>
+          </div>
+          <div class="legend"><span><i class="key key-1"></i>Normal league game</span><span><i class="key key-2"></i>Big game / derby</span><span><i class="key key-hollow"></i>Hollow = estimate</span></div>
+          <div id="dumbbell" class="chart"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h3 class="card-title">Price vs power</h3>
+              <p class="card-sub">Cheapest normal-game ticket (€) against Power index. Top-left is where the bargains live. Hollow dots are estimated prices.</p>
+            </div>
+          </div>
+          <div id="scatter" class="chart"></div>
+        </div>
+      </div>
+
+      <div class="card table-card">
+        <div class="card-head">
+          <div>
+            <h3 class="card-title">Season tickets and how to get in</h3>
+            <p class="card-sub">Cheapest adult season ticket (abono) and how open it is to newcomers.</p>
+          </div>
+        </div>
+        <div class="table-wrap"><table id="ticketTable" class="data-table"></table></div>
+      </div>
+    </section>
+
+    <!-- ============ CLUB FILES ============ -->
+    <section id="clubs" class="section">
+      <div class="section-head">
+        <p class="eyebrow">05 · Club files</p>
+        <h2>Meet all 20 suitors</h2>
+        <p class="section-lede">Each file has the stats, prices and attitude, plus a phrase to shout and a tip for newcomers.</p>
+      </div>
+      <div class="filter-row">
+        <label class="field grow">
+          <span class="field-label">Search</span>
+          <input id="clubSearch" type="search" placeholder="Club, city or nickname…" autocomplete="off">
+        </label>
+        <label class="field">
+          <span class="field-label">Sort by</span>
+          <select id="clubSort">
+            <option value="match">Your match %</option>
+            <option value="power">Power index</option>
+            <option value="price">Cheapest ticket</option>
+            <option value="atmosphere">Atmosphere</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </label>
+      </div>
+      <div id="clubGrid" class="club-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <p class="brand"><span aria-hidden="true">🔥</span> Equipo<b>Finder</b></p>
+        <p class="muted">Made with love (and a slightly unhealthy amount of hot pink) for a friend moving to Spain.</p>
+      </div>
+      <div class="footer-notes">
+        <p><strong>About the data.</strong> <span id="dataNote"></span></p>
+        <p><strong>Attitude scores</strong> are opinion, written with affection. No club was harmed, only gently roasted.</p>
+        <p><strong>Ticket prices</strong> change constantly and depend on the opponent, the seat and membership status. Treat them as a ballpark and check each club's official site before buying.</p>
+        <p class="muted">Club names are used for identification only. This fan project has no connection to LaLiga or any club. Map outline from Natural Earth.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+
+  <dialog id="clubModal" class="modal" aria-labelledby="modalTitle">
+    <div class="modal-body" id="modalBody"></div>
+  </dialog>
+
+  <div id="spinOverlay" class="spin-overlay" hidden>
+    <div class="spin-box" role="dialog" aria-modal="true" aria-label="Wheel of fate">
+      <p class="eyebrow">The wheel of fate says…</p>
+      <div id="spinReel" class="spin-reel"></div>
+      <div id="spinResult" class="spin-result"></div>
+      <div class="spin-actions">
+        <button type="button" class="btn btn-ghost" id="spinAgain">Spin again</button>
+        <button type="button" class="btn btn-fire" id="spinOpen">Open club file</button>
+        <button type="button" class="btn btn-ghost" id="spinClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/spain-map.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
