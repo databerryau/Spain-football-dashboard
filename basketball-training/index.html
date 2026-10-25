@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Easy Basketball Training</title>
+  <meta name="description" content="One tap makes a full 60-minute junior basketball training session, with simple steps, coaching cues and animated drills. Made for brand-new coaches.">
+  <meta name="theme-color" content="#FFF7ED">
+  <meta property="og:title" content="Easy Basketball Training">
+  <meta property="og:description" content="One tap, a full 60-minute session. Made for brand-new junior coaches.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-ball" aria-hidden="true">🏀</span>
+        <span>Easy Basketball<small>Training sessions for new coaches</small></span>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Pages">
+        <button type="button" role="tab" data-tab="session" aria-selected="true" aria-controls="view-session">Session</button>
+        <button type="button" role="tab" data-tab="help" aria-selected="false" aria-controls="view-help">Coach help</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="view-session" role="tabpanel" aria-label="Session">
+      <div id="session"></div>
+    </section>
+    <section id="view-help" role="tabpanel" aria-label="Coach help" hidden>
+      <div id="help"></div>
+    </section>
+  </main>
+
+  <p class="foot">Made for Under 12s on a half court. Have fun out there, coach!</p>
+
+  <div id="run" class="run" role="dialog" aria-modal="true" aria-label="Running the session" hidden></div>
+
+  <script src="assets/js/court.js"></script>
+  <script src="assets/js/drills.js"></script>
+  <script src="assets/js/help.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
