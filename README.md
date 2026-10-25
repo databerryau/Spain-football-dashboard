@@ -53,7 +53,6 @@ assets/js/data.js       club data (facts + editorial content): edit this to upda
 assets/js/app.js        matchmaker, charts, map, heatmap, modal, flame animation
 assets/js/spain-map.js  pre-projected SVG outline of Spain and neighbours
 .github/workflows/      publishes the site to the gh-pages branch on every push to main
-basketball-training/    a separate mini-site: Easy Basketball Training (see its README)
 ```
 
 ## Updating
