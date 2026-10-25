@@ -24,7 +24,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p "$RUNNER_TEMP/site"
-          cp -r index.html assets .nojekyll "$RUNNER_TEMP/site/"
+          cp -r index.html assets basketball-training .nojekyll "$RUNNER_TEMP/site/"
           cd "$RUNNER_TEMP/site"
           git init -q -b gh-pages
           git config user.name "github-actions[bot]"
